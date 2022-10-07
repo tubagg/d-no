@@ -1,0 +1,155 @@
+@import url('https://fonts.googleapis.com/css2?family=Bungee+Spice&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  color: #fff;
+  font-family: 'Bungee Spice', sans-serif;
+  overflow: hidden;
+}
+
+body {
+  background-color: #090712;
+}
+
+.container {
+  width: 100%;
+  height: 100vh;
+}
+
+.game-title {
+  display: flex;
+  justify-content: center;
+  font-size: 3rem;
+  margin-top: 3%;
+}
+
+.game-score {
+  display: flex;
+  justify-content: center;
+  gap: 30%;
+  font-size: 20px;
+  margin-top: 20px;
+}
+
+.game-score .score {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 200px;
+}
+
+.game-score .score p {
+  margin-top: 5px;
+  font-size: 25px;
+}
+
+.game-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.game {
+  width: 900px;
+  height: 500px;
+  background-color: transparent;
+  position: relative;
+}
+
+.game .road {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 200px;
+  background: #161616;
+  display: flex;
+  align-items: center;
+  z-index: -1;
+}
+
+.game .road::before {
+  content: '';
+  width: 120%;
+  height: 30px;
+  background: repeating-linear-gradient(to right, #161616 0 50%, #fff 50% 100%);
+  background-size: 25%;
+  transform: skewX(-35deg);
+  animation: road 2s linear infinite;
+}
+
+.game .dino {
+  margin-top: 150px;
+}
+
+.game .dino.jump {
+  animation: dinoJump 0.7s linear;
+}
+
+.game .dino img {
+  width: 200px;
+  height: 200px;
+  filter: invert(1);
+}
+
+.game .cactus {
+  position: fixed;
+  display: flex;
+  top: 500px;
+  align-items: center;
+  padding: 0 20px;
+  width: 900px;
+}
+
+.game .cactus img {
+  width: 80px;
+  height: 100px;
+  filter: invert(1);
+  animation: cactus 2s linear infinite running;
+}
+
+.game .cactus img:nth-child(1) {
+  margin-left: 90%;
+}
+
+.game .cactus img:nth-child(2) {
+  margin-left: 60%;
+}
+
+
+@keyframes cactus {
+  0% {
+    margin-left: 90%;
+  }
+
+  100% {
+    margin-left: 0%;
+  }
+}
+
+@keyframes dinoJump {
+  0% {
+    margin-top: 150px;
+  }
+
+  50% {
+    margin-top: 20px;
+  }
+
+  100% {
+    margin-top: 150px;
+  }
+}
+
+@keyframes road {
+  0% {
+    background-position-x: 100%;
+  }
+
+  100% {
+    background-position-x: 0%;
+  }
+}
